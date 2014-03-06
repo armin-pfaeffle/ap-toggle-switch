@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="de-DE" class="no-js"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="de-DE" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<title>Toggle switch UI control</title>
+		<meta name="description" content="Toggle switch UI control" />
+		<meta name="author" content="Armin Pfäffle" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch.css" media="screen" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="lib/js/ap-toggle-switch.0.1.js"></script>
+		<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>ApToggleSwitch</h1>
+			<p>
+				ApToggleSwitch is a component that turns a checkbox into a more efficient component,
+				especially on touch devices. It is inspired by HTC Sense interface, written as simple
+				<a href="http://jquery.com" target="_blank">jQuery</a> plugin and completely based on
+				<a href="http://www.w3.org/Style/CSS/" target="_blank">CSS3</a> that it ready for
+				any resolutions (&raquo;<em>Retina-ready</em>&laquo;).
+			</p>
+			<ol>
+				<li><a href="#examples">Examples</a></li>
+				<li><a href="#license-and-download">License and Download</a></li>
+				<li><a href="#how-to-use">How to use</a></li>
+				<li><a href="#options">Options</a></li>
+				<li><a href="#themes">Themes</a></li>
+				<li><a href="#changelog">Changelog</a></li>
+				<li><a href="#faq">FAQ</a></li>
+			</ol>
+
+
+			<h2 id="examples">Examples</h2>
+			<div class="left">
+				<div class="default-checkbox">
+					<label for="cb1">Default CB:</label>
+					<input type="checkbox" name="cb1" id="cb1" tabindex="1" />
+				</div>
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+					<label for="cb2">Toggle Switch:</label>
+					<input type="checkbox" name="cb2" id="cb2" checked="checked" tabindex="2" />
+					<br />
+					<br />
+					<label for="cb3">No transitions:</label>
+					<input type="checkbox" name="cb3" id="cb3" tabindex="3" />
+				</div>
+				<div id="normal-theme-code" class="example-code">
+<pre class="prettyprint lang-js">
+$('#cb2').apToggleSwitch();
+</pre>
+<pre class="prettyprint lang-js">
+$('#cb3').apToggleSwitch({
+    transitions: false
+});
+</pre>
+				</div>
+				<div class="dark-theme">
+					<a href="#dark-theme-code" class="toggle-code"><img src="images/source-code_white.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+					<label for="cb4">Theme 'dark':</label>
+					<input type="checkbox" name="cb4" id="cb4" tabindex="4" />
+					<br />
+					<br />
+					<label for="cb5">Theme 'dark-alternative':</label>
+					<input type="checkbox" name="cb5" id="cb5" checked="checked" tabindex="5" />
+				</div>
+				<div id="dark-theme-code" class="example-code">
+<pre class="prettyprint lang-js">
+$('#cb4').apToggleSwitch({
+    activeBorder: true,
+    uppercase: false,
+    theme: 'dark'
+});
+</pre>
+<pre class="prettyprint lang-js">
+$('#cb5').apToggleSwitch({
+    activeBorder: true,
+    uppercase: false,
+    theme: 'dark-alternative'
+});
+</pre>
+				</div>
+			</div>
+			<div class="right output">
+				<span class="smaller">For adding event listener <a href="#event-listener">see here</a>!</span>
+				<br />
+			</div>
+			<div class="clearer"></div>
+
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#cb2').apToggleSwitch();
+					$('#cb3').apToggleSwitch({transitions: false});
+					$('#cb4').apToggleSwitch({
+						activeBorder: true,
+						uppercase: false,
+						theme: 'dark'
+					});
+					$('#cb5').apToggleSwitch({
+						activeBorder: true,
+						uppercase: false,
+						theme: 'dark-alternative'
+					});
+
+					$('#cb1, #cb2, #cb3, #cb4, #cb5')
+						.change(function() {
+							$('.output').append('#' + $(this).attr('id') + ' change to: ' + ($(this).is(':checked') ? 'true' : 'false') + '<br />');
+						});
+
+					$('.toggle-code').click(function() {
+						var id = $(this).attr('href');
+						$(id).slideToggle();
+						return false;
+					})
+				});
+			</script>
+
+			<h2 id="license-and-download">License and Download</h2>
+			<p>
+				ApToggleSwitch is licensed under <a href="http://armin-pfaeffle.de/licenses/mit">MIT license</a>.
+			</p>
+			<p>
+				The latest source code is available on <a href="https://github.com/g3ck0/ApToggleSwitch" target="_blank">GitHub</a>.
+			</p>
+			<p>
+				<a href="http://www.armin-pfaeffle.de/blog/download/http://armin-pfaeffle.de/labs/ap-toggle-switch/ap-toggle-switch.0.1.zip">Direct Download</a>
+			</p>
+
+
+			<h2 id="how-to-use">How to use</h2>
+			<p>Include jQuery (e.g. from <a href="https://developers.google.com/speed/libraries/devguide" target="_blank">Google CDN</a>), JS and CSS:</p>
+<pre class="prettyprint lang-html">
+&lt;!-- Add jQuery library --&gt;
+&lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"&gt;&lt;/script&gt;
+
+&lt;!-- Add ApToggleSwitch --&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/ap-toggle-switch.css" media="screen" /&gt;
+&lt;script src="js/ap-toggle-switch.0.1.min.js"&gt;&lt;/script&gt;
+</pre>
+			<p>
+				Next step ist to insert a new checkbox or to detect that one you want to <em>transform</em>
+				to ApToggleSwitch. Beside that, think about adding a tabindex attribute because usability
+				matters!
+			</p>
+<pre class="prettyprint lang-html">
+&lt;input type="checkbox" name="cb1" id="cb1" tabindex="1" /&gt;
+</pre>
+			<p>
+				Apply ApToggleSwitch when document is loaded... and <em>TADA</em>! That's all!
+			</p>
+<pre class="prettyprint lang-html">
+&lt;script type="text/javascript"&gt;
+    $(document).ready(function() {
+        $("#cb1").apToggleSwitch();
+    });
+&lt;/script&gt;
+</pre>
+
+
+			<h2 id="options">Options</h2>
+			<table>
+				<tr>
+					<th width="30%">Name</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td><code>handleLabelClicks</code></td>
+					<td>
+						If true, this script handles clicks on corresponding &lt;label&gt;-elements.
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><code>handleKeyEvents</code></td>
+					<td>
+						If true, this script handles key events if UI element is focused. Following keys
+						are handled:
+						<ul>
+							<li><em>Space</em>, <em>Enter</em>: toggle value</li>
+							<li><em>Right</em>, <em>Y</em>: set value <strong>On</strong></li>
+							<li><em>Left</em>, <em>N</em>: set value <strong>Off</strong></li>
+						</ul>
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><code>transitions</code></td>
+					<td>
+						If true, transitions are enabled when toggling value. The transitions are CSS based,
+						so browser has to support CSS transitions!
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><code>activeBorder</code></td>
+					<td>
+						If true, a highlight border is shown when element is focused.
+						<span class="default">
+							<em>Default:</em> <code>false</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><code>uppercase</code></td>
+					<td>
+						If true, the font in the UI element is uppercase.
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td><code>theme</code></td>
+					<td>
+						Used theme for UI element. Available themes:
+						<ul>
+							<li>default</li>
+							<li>dark</li>
+							<li>dark-alternative</li>
+						</ul>
+						<span class="default">
+							<em>Default:</em> <code>'default'</code>
+						</span>
+					</td>
+				</tr>
+			</table>
+
+
+			<h2 id="themes">Themes</h2>
+			<p>
+				There are three basic themes right now: <em>default</em>, <em>dark</em> and
+				<em>dark-alternative</em>. But you can easily add you own theme or overwrite the
+				exitant ones. Therefore have a look at <code>ap-toggle-switch.css</code> where you
+				can find the three example themes.
+			</p>
+			<p>
+				To add your own theme you have to add the following CSS skeleton to your stylesheet and
+				replace <code>NAME</code> with any name. Now you can apply any colors you want to!
+				After you have finished you can apply your theme by setting <code>theme: 'NAME'</code>.
+			</p>
+<pre class="prettyprint lang-css">
+.ap-toggle-switch-<em>NAME</em> {
+    /* UI container */
+    }
+
+    .ap-toggle-switch-<em>NAME</em> > .ap-toggle-switch-slider > .ap-toggle-switch-left {
+        /* Left part of toggle switch, visible when ON */
+        }
+
+    .ap-toggle-switch-<em>NAME</em> > .ap-toggle-switch-slider > .ap-toggle-switch-middle:after {
+    	/* Middle part of toggle switch, always visible */
+    	}
+
+    .ap-toggle-switch-<em>NAME</em> > .ap-toggle-switch-slider > .ap-toggle-switch-right {
+        /* Left part of toggle switch, visible when OFF */
+        }
+
+    .ap-toggle-switch-<em>NAME</em> > .ap-toggle-switch-slider .on {
+        /* text "On" */
+        }
+
+    .ap-toggle-switch-<em>NAME</em> > .ap-toggle-switch-slider .off {
+        /* text "Off" */
+        }
+
+.ap-toggle-switch-<em>NAME</em>.active-border:focus,
+.ap-toggle-switch-<em>NAME</em>.active-border:active {
+    /* UI container with status focused */
+    }
+</pre>
+			<p>
+				Modifying a theme means to copy the skeleton, set <code>NAME</code> to the corresponding
+				theme name and add the values you wish. Please ensure that the modified CSS is loaded
+				<strong>after</strong> the default themes!
+			</p>
+
+
+			<h2 id="changelog">Changelog</h2>
+			<p>
+				<strong>06.03.2014</strong>
+				<p>Initial version</p>
+			</p>
+
+
+			<h2 id="faq">FAQ</h2>
+			<h3 id="event-listener">Can I use a event listener?</h3>
+			<p>
+				Yes, of course you can add an event listener. But you have to add it to the checkbox! An example:
+			</p>
+<pre class="prettyprint lang-html">
+&lt;input type="checkbox" name="cbX id="cbX" /&gt;
+&lt;script type="text/javascript"&gt;
+    $(document).ready(function() {
+        $("#cbX")
+            .apToggleSwitch()
+            .change(function() {
+                alert('#cbX changed to ' + $(this).is(':checked'));
+            });
+    });
+&lt;/script&gt;
+</pre>
+			<h3>Transistions does not work</h3>
+			<p>
+				Do you use a modern browser that supports CSS transitions? The transitions
+				are not based on JavaScript or jQuery, they are are based on CSS.
+			</p>
+			<h3>The text <em>On/Off</em> does not fit/is too big?</h3>
+			<p>
+				The problem is that the font <em>PT Sans Narrow</em> is not loaded! In <code>ap-toggle-switch.css</code>
+				you can see that the font is imported from <a href="https://www.google.com/fonts" target="_blank">Google Fonts</a>
+				so if you computer has no internet access it can not load this font.
+			</p>
+			<p>
+				For this problem you can add <code>ap-toggle-switch.offline.css</code> and the <em>fonts</em> folder.
+				Please ensure that paths in <code>ap-toggle-switch.offline.css</code> point to the correct fonts, if
+				you use another structure.
+			</p>
+			<h3>Why does the UI element not look as it should?</h3>
+			<p>
+				This component was written for modern browsers that support CSS3 and not old ones
+				like IE6-IE8. There is even no browser detection that disables the script on not
+				supported browser. You have to do that on your own if you like to have such a feature!
+			</p>
+			<h3>Is it possible to modify a theme?</h3>
+			<p>
+				Of course! Have a look at <a href="#themes">Themes</a>. There you find all necessary
+				information for adding an individual theme or modifying an existant one.
+			</p>
+
+
+
+
+			<div class="imprint">
+				If you have any feedback, or have a feature request, let me know: <a href="mailto:mail@armin-pfaeffle.de">mail@armin-pfaeffle.de</a> | <a href="http://www.armin-pfaeffle.de/blog/impressum/" target="_blank">Impressum</a>
+			</div>
+
+		</div>
+
+	</body>
+</html>
