@@ -34,6 +34,7 @@
 				<li><a href="#license-and-download">License and Download</a></li>
 				<li><a href="#how-to-use">How to use</a></li>
 				<li><a href="#options">Options</a></li>
+				<li><a href="#api">API</a></li>
 				<li><a href="#themes">Themes</a></li>
 				<li><a href="#changelog">Changelog</a></li>
 				<li><a href="#faq">FAQ</a></li>
@@ -148,9 +149,16 @@ $('#cb5').apToggleSwitch({
 &lt;script src="js/ap-toggle-switch.0.1.min.js"&gt;&lt;/script&gt;
 </pre>
 			<p>
+				Or you use the minified versions which saves bandwidth &ndash; ~20KB vs. 13KB:
+			</p>
+<pre class="prettyprint lang-html">
+&lt;!-- Add ApToggleSwitch --&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/ap-toggle-switch.min.css" media="screen" /&gt;
+&lt;script src="js/ap-toggle-switch.0.1.min.js"&gt;&lt;/script&gt;
+</pre>
+			<p>
 				Next step ist to insert a new checkbox or to detect that one you want to <em>transform</em>
-				to ApToggleSwitch. Beside that, think about adding a tabindex attribute because usability
-				matters!
+				to ApToggleSwitch.
 			</p>
 <pre class="prettyprint lang-html">
 &lt;input type="checkbox" name="cb1" id="cb1" tabindex="1" /&gt;
@@ -165,6 +173,16 @@ $('#cb5').apToggleSwitch({
     });
 &lt;/script&gt;
 </pre>
+			<h3>Note</h3>
+			<p>
+				If the checkbox has a tabindex this attribute is automatically applied to the ApToggleSwitch
+				control and is removed from checkbox.
+			</p>
+			<p>
+				If you need access to the ApToggleSwitch control you can access it via ID the following way:
+				adding an ID to the checkbox will generate an prefixed ID <code>ap-toggle-switch-<em>ID</em></code>
+				for the control &ndash; replace <em>ID</em> with your ID.
+			</p>
 
 
 			<h2 id="options">Options</h2>
@@ -237,6 +255,58 @@ $('#cb5').apToggleSwitch({
 						<span class="default">
 							<em>Default:</em> <code>'default'</code>
 						</span>
+					</td>
+				</tr>
+			</table>
+
+
+			<h2 id="api">API</h2>
+			<table>
+				<tr>
+					<th width="30%">Name</th>
+					<th>Description</th>
+				</tr>
+				<tr>
+					<td><code>toggle</code></td>
+					<td>
+<pre class="prettyprint lang-js">
+$('#checkboxID').apToggleSwitch('toggle');
+</pre>
+						Toggles the control value.
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<code>on</code> / <code>yes</code>
+					</td>
+					<td>
+<pre class="prettyprint lang-js">
+$('#checkboxID').apToggleSwitch('on');
+// or
+$('#checkboxID').apToggleSwitch('yes');
+</pre>
+						<p>
+							Set's the control value to <code>true</code>. If value was already
+							<code>true</code>, nothing happens and <strong>no</strong> change
+							event is triggered.
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<code>off</code> / <code>no</code>
+					</td>
+					<td>
+<pre class="prettyprint lang-js">
+$('#checkboxID').apToggleSwitch('off');
+// or
+$('#checkboxID').apToggleSwitch('no');
+</pre>
+						<p>
+							Set's the control value to <code>false</code>. If value was already
+							<code>false</code>, nothing happens and <strong>no</strong> change
+							event is triggered.
+						</p>
 					</td>
 				</tr>
 			</table>

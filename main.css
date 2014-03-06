@@ -132,6 +132,10 @@ table {
 			padding: 10px;
 			}
 
+		table tr td > pre:first-child {
+			margin-top: 0;
+			}
+
 	table .default {
 		display: block;
 		margin-top: 5px;
