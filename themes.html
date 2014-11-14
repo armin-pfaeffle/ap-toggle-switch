@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="de-DE" class="no-js"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="de-DE" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<title>Toggle switch UI control</title>
+		<meta name="description" content="Toggle switch UI control" />
+		<meta name="keywords" content="ApToggleSwitch, toggle switch, UI control, retina ready" />
+		<meta name="author" content="Armin Pfäffle" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch-themes.css" media="screen" />
+		<script src="lib/js/ap-toggle-switch.1.0.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+
+			<h1 id="title">ApToggleSwitch Examples</h1>
+			<ol>
+				<li><a href="#examples-basics">Basics</a></li>
+				<li><a href="#examples-options">Options</a></li>
+				<li><a href="#examples-sizes">Sizes</a></li>
+				<li><a href="#examples-themes">Themes</a></li>
+			</ol>
+
+
+			<h2 id="examples-basics">Basics</h2>
+			<div class="examples-basic left">
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb1" style="width: 80%">Default Checkbox:</label>
+							<input type="checkbox" name="cb1" id="cb1" tabindex="1" />
+						</li>
+						<li>
+							<label for="cb-default" style="width: 80%">Default usage:</label>
+							<input type="checkbox" name="cb-default" id="cb-default" tabindex="2" />
+
+							<script type="text/javascript">
+								$('#cb-default').apToggleSwitch();
+							</script>
+						</li>
+						<li>
+							<label for="cb-default-checked" style="width: 80%">Default usage (checked):</label>
+							<input type="checkbox" name="cb-default-checked" id="cb-default-checked" checked="checked" tabindex="3" />
+
+							<script type="text/javascript">
+								$('#cb-default-checked').apToggleSwitch();
+							</script>
+						</li>
+					</ul>
+
+					<script type="text/javascript">
+					$('.examples-basic input[type="checkbox"]')
+						.change(function() {
+							$('.output').append('#' + $(this).attr('id') + ' change to: ' + ($(this).is(':checked') ? 'true' : 'false') + '<br />');
+						});
+					</script>
+				</div>
+			</div>
+			<div class="right output">
+				<span class="smaller">For adding event listener <a href="#event-listener">see here</a>!</span>
+				<br />
+			</div>
+			<div class="clearer"></div>
+
+
+			<h2 id="examples-options">Options</h2>
+			<div class="examples-options">
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb-status-visibility-width">Status Visibility Width:</label>
+							<input type="checkbox" name="cb-status-visibility-width" id="cb-status-visibility-width" tabindex="4" />
+
+							<script type="text/javascript">
+								$('#cb-status-visibility-width').apToggleSwitch({
+									statusVisibilityWidth: 25
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-custom-text-a">Custom Text A:</label>
+							<input type="checkbox" name="cb-custom-text-a" id="cb-custom-text-a" tabindex="4" />
+
+							<script type="text/javascript">
+								$('#cb-custom-text-a').apToggleSwitch({
+									text: "Yes|No"
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-custom-text-b">Custom Text B:</label>
+							<input type="checkbox" name="cb-custom-text-b" id="cb-custom-text-b" tabindex="4" />
+
+							<script type="text/javascript">
+								$('#cb-custom-text-b').apToggleSwitch({
+									text: "Windows|Mac OS"
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-text-padding">Text Padding:</label>
+							<input type="checkbox" name="cb-text-padding" id="cb-text-padding" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-text-padding').apToggleSwitch({
+									padding: 20
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-slider-type-straight">Slider Type B:</label>
+							<input type="checkbox" name="cb-slider-type-straight" id="cb-slider-type-straight" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-slider-type-straight').apToggleSwitch({
+									sliderType: "straight"
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-slider-type-skew-reverse">Slider Type B:</label>
+							<input type="checkbox" name="cb-slider-type-skew-reverse" id="cb-slider-type-skew-reverse" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-slider-type-skew-reverse').apToggleSwitch({
+									sliderType: "skew-reverse"
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-no-uppercase">No Uppercase:</label>
+							<input type="checkbox" name="cb-no-uppercase" id="cb-no-uppercase" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-no-uppercase').apToggleSwitch({
+									uppercase: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-no-slide-animation">No Slide Animation:</label>
+							<input type="checkbox" name="cb-no-slide-animation" id="cb-no-slide-animation" tabindex="6" />
+
+							<script type="text/javascript">
+								$('#cb-no-slide-animation').apToggleSwitch({
+									slideAnimation: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-active-border">Active Border:</label>
+							<input type="checkbox" name="cb-active-border" id="cb-active-border" tabindex="7" />
+
+							<script type="text/javascript">
+								$('#cb-active-border').apToggleSwitch({
+									activeBorder: true
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-no-round-corners">No Round Corners:</label>
+							<input type="checkbox" name="cb-no-round-corners" id="cb-no-round-corners" tabindex="8" />
+
+							<script type="text/javascript">
+								$('#cb-no-round-corners').apToggleSwitch({
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-readonly-a">Readonly (On):</label>
+							<input type="checkbox" name="cb-readonly-a" id="cb-readonly-a" tabindex="9" readonly="readonly" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-readonly-a').apToggleSwitch({
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-readonly-b">Readonly (Off):</label>
+							<input type="checkbox" name="cb-readonly-b" id="cb-readonly-b" tabindex="10" />
+
+							<script type="text/javascript">
+								$('#cb-readonly-b').apToggleSwitch({
+									readonly: true,
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-disabled-on">Disabled (On):</label>
+							<input type="checkbox" name="cb-disabled-on" id="cb-disabled-on" tabindex="11" disabled="disabled" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-disabled-on').apToggleSwitch({
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-disabled-off">Disabled (Off):</label>
+							<input type="checkbox" name="cb-disabled-off" id="cb-disabled-off" tabindex="12" />
+
+							<script type="text/javascript">
+								$('#cb-disabled-off').apToggleSwitch({
+									disabled: true,
+								});
+							</script>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<h2 id="examples-sizes">Sizes</h2>
+			<div class="examples-sizes">
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb-size-default">Default Size (auto):</label>
+							<input type="checkbox" name="cb-size-default" class="cb-size-default" tabindex="5" />
+							<input type="checkbox" name="cb-size-default" class="cb-size-default" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-default" class="cb-size-default" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-default" class="cb-size-default" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-default').apToggleSwitch();
+							</script>
+						</li>
+						<li>
+							<label for="cb-size-small">Small:</label>
+							<input type="checkbox" name="cb-size-small" class="cb-size-small" tabindex="5" />
+							<input type="checkbox" name="cb-size-small" class="cb-size-small" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-small" class="cb-size-small" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-small" class="cb-size-small" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-small').apToggleSwitch({
+									size: 'small'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-size-medium">Medium:</label>
+							<input type="checkbox" name="cb-size-medium" class="cb-size-medium" tabindex="5" />
+							<input type="checkbox" name="cb-size-medium" class="cb-size-medium" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-medium" class="cb-size-medium" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-medium" class="cb-size-medium" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-medium').apToggleSwitch({
+									size: 'medium'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-size-large">Large:</label>
+							<input type="checkbox" name="cb-size-large" class="cb-size-large" tabindex="5" />
+							<input type="checkbox" name="cb-size-large" class="cb-size-large" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-large" class="cb-size-large" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-large" class="cb-size-large" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-large').apToggleSwitch({
+									size: 'large'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-size-xl">XL:</label>
+							<input type="checkbox" name="cb-size-xl" class="cb-size-xl" tabindex="5" />
+							<input type="checkbox" name="cb-size-xl" class="cb-size-xl" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-xl" class="cb-size-xl" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-xl" class="cb-size-xl" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-xl').apToggleSwitch({
+									size: 'xl'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-size-xxl">XXL:</label>
+							<input type="checkbox" name="cb-size-xxl" class="cb-size-xxl" tabindex="5" />
+							<input type="checkbox" name="cb-size-xxl" class="cb-size-xxl" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-xxl" class="cb-size-xxl" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-xxl" class="cb-size-xxl" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-xxl').apToggleSwitch({
+									size: 'xxl'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-size-xxxl">XXXL:</label>
+							<input type="checkbox" name="cb-size-xxxl" class="cb-size-xxxl" tabindex="5" />
+							<input type="checkbox" name="cb-size-xxxl" class="cb-size-xxxl" tabindex="5" readonly="readonly" />
+							<input type="checkbox" name="cb-size-xxxl" class="cb-size-xxxl" tabindex="5" disabled="disabled" />
+							<input type="checkbox" name="cb-size-xxxl" class="cb-size-xxxl" tabindex="5" readonly="readonly" disabled="disabled" />
+
+							<script type="text/javascript">
+								$('.cb-size-xxxl').apToggleSwitch({
+									size: 'xxxl'
+								});
+							</script>
+						</li>
+					</ul>
+				</div>
+
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb-width-default">Default width:</label>
+							<input type="checkbox" name="cb-width-default" id="cb-width-default" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-default').apToggleSwitch();
+							</script>
+						</li>
+						<li>
+							<label for="cb-width-multiplier-1-5">Width Multiplier 1.5:</label>
+							<input type="checkbox" name="cb-width-multiplier-1-5" id="cb-width-multiplier-1-5" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-multiplier-1-5').apToggleSwitch({
+									widthMultiplier: 1.5
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-width-multiplier-2-5">Width Multiplier 2.5:</label>
+							<input type="checkbox" name="cb-width-multiplier-2-5" id="cb-width-multiplier-2-5" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-multiplier-2-5').apToggleSwitch({
+									widthMultiplier: 2.5
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-width-multiplier-2-5-medium">Width Multiplier 2.5/Medium Size:</label>
+							<input type="checkbox" name="cb-width-multiplier-2-5-medium" id="cb-width-multiplier-2-5-medium" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-multiplier-2-5-medium').apToggleSwitch({
+									widthMultiplier: 2.5,
+									size: 'medium'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-width-multiplier-3-5">Width Multiplier 3.5:</label>
+							<input type="checkbox" name="cb-width-multiplier-3-5" id="cb-width-multiplier-3-5" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-multiplier-3-5').apToggleSwitch({
+									widthMultiplier: 3.5
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-width-multiplier-3-5-large">Width Multiplier 3.5/Large Size:</label>
+							<input type="checkbox" name="cb-width-multiplier-3-5-large" id="cb-width-multiplier-3-5-large" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-multiplier-3-5-large').apToggleSwitch({
+									widthMultiplier: 3.5,
+									size: 'large'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-width-multiplier-3-0-xxxl">Width Multiplier 3.0/XXXL:</label>
+							<input type="checkbox" name="cb-width-multiplier-3-0-xxxl" id="cb-width-multiplier-3-0-xxxl" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-width-multiplier-3-0-xxxl').apToggleSwitch({
+									widthMultiplier: 3.0,
+									size: 'xxxl'
+								});
+							</script>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+
+			<h2 id="examples-themes">Themes</h2>
+			<div class="examples-themes">
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb-theme-default">Default theme:</label>
+							<input type="checkbox" name="cb-theme-default" id="cb-theme-default" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-default').apToggleSwitch({
+									activeBorder: true
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-metro-light">Metro light:</label>
+							<input type="checkbox" name="cb-theme-metro-light" id="cb-theme-metro-light" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-metro-light').apToggleSwitch({
+									theme: 'metro-light',
+									activeBorder: true,
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense">HTC Sense (default):</label>
+							<input type="checkbox" name="cb-theme-htc-sense" id="cb-theme-htc-sense" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense').apToggleSwitch({
+									theme: 'htc-sense',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-blue">... blue:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-blue" id="cb-theme-htc-sense-blue" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-blue').apToggleSwitch({
+									theme: 'htc-sense',
+									color: 'blue',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-green">... green:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-green" id="cb-theme-htc-sense-green" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-green').apToggleSwitch({
+									theme: 'htc-sense',
+									color: 'green',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-yellow">... yellow:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-yellow" id="cb-theme-htc-sense-yellow" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-yellow').apToggleSwitch({
+									theme: 'htc-sense',
+									color: 'yellow',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-purple">... purple:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-purple" id="cb-theme-htc-sense-purple" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-purple').apToggleSwitch({
+									theme: 'htc-sense',
+									color: 'purple',
+									roundCorners: false
+								});
+							</script>
+						</li>
+					</ul>
+				</div>
+
+				<div class="dark-theme">
+					<a href="#dark-theme-code" class="toggle-code"><img src="images/source-code_white.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb-theme-dark">Theme 'dark':</label>
+							<input type="checkbox" name="cb-theme-dark" id="cb-theme-dark" tabindex="4" />
+
+							<script type="text/javascript">
+								$('#cb-theme-dark').apToggleSwitch({
+									theme: 'dark',
+									activeBorder: true
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-dark-alternative">Theme 'dark-alternative':</label>
+							<input type="checkbox" name="cb-theme-dark-alternative" id="cb-theme-dark-alternative" checked="checked" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-theme-dark-alternative').apToggleSwitch({
+									theme: 'dark-alternative',
+									activeBorder: true
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-metro-dark">Metro dark:</label>
+							<input type="checkbox" name="cb-theme-metro-dark" id="cb-theme-metro-dark" tabindex="5" />
+
+							<script type="text/javascript">
+								$('#cb-theme-metro-dark').apToggleSwitch({
+									theme: 'metro-dark',
+									activeBorder: true,
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-dark">HTC Sense (default):</label>
+							<input type="checkbox" name="cb-theme-htc-sense-dark" id="cb-theme-htc-sense-dark" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-dark').apToggleSwitch({
+									theme: 'htc-sense-dark',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-dark-blue">... blue:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-dark-blue" id="cb-theme-htc-sense-dark-blue" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-dark-blue').apToggleSwitch({
+									theme: 'htc-sense-dark',
+									color: 'blue',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-dark-green">... green:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-dark-green" id="cb-theme-htc-sense-dark-green" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-dark-green').apToggleSwitch({
+									theme: 'htc-sense-dark',
+									color: 'green',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-dark-yellow">... yellow:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-dark-yellow" id="cb-theme-htc-sense-dark-yellow" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-dark-yellow').apToggleSwitch({
+									theme: 'htc-sense-dark',
+									color: 'yellow',
+									roundCorners: false
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-htc-sense-dark-purple">... purple:</label>
+							<input type="checkbox" name="cb-theme-htc-sense-dark-purple" id="cb-theme-htc-sense-dark-purple" tabindex="5" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-htc-sense-dark-purple').apToggleSwitch({
+									theme: 'htc-sense-dark',
+									color: 'purple',
+									roundCorners: false
+								});
+							</script>
+						</li>
+					</ul>
+				</div>
+
+				<div class="transparent-theme">
+					<a href="#dark-theme-code" class="toggle-code"><img src="images/source-code_white.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<ul class="examples">
+						<li>
+							<label for="cb-theme-transparent">Transparent (default):</label>
+							<input type="checkbox" name="cb-theme-transparent" id="cb-theme-transparent" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-blue">Transparent (blue):</label>
+							<input type="checkbox" name="cb-theme-transparent-blue" id="cb-theme-transparent-blue" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-blue').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent',
+									color: 'blue'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-green">Transparent (green):</label>
+							<input type="checkbox" name="cb-theme-transparent-green" id="cb-theme-transparent-green" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-green').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent',
+									color: 'green'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-yellow">Transparent (yellow):</label>
+							<input type="checkbox" name="cb-theme-transparent-yellow" id="cb-theme-transparent-yellow" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-yellow').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent',
+									color: 'yellow'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-purple">Transparent (purple):</label>
+							<input type="checkbox" name="cb-theme-transparent-purple" id="cb-theme-transparent-purple" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-purple').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent',
+									color: 'purple'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-dark">Transparent (default):</label>
+							<input type="checkbox" name="cb-theme-transparent-dark" id="cb-theme-transparent-dark" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-dark').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent-dark'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-dark-blue">Transparent (blue):</label>
+							<input type="checkbox" name="cb-theme-transparent-dark-blue" id="cb-theme-transparent-dark-blue" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-dark-blue').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent-dark',
+									color: 'blue'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-dark-green">Transparent (green):</label>
+							<input type="checkbox" name="cb-theme-transparent-dark-green" id="cb-theme-transparent-dark-green" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-dark-green').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent-dark',
+									color: 'green'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-dark-yellow">Transparent (yellow):</label>
+							<input type="checkbox" name="cb-theme-transparent-dark-yellow" id="cb-theme-transparent-dark-yellow" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-dark-yellow').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent-dark',
+									color: 'yellow'
+								});
+							</script>
+						</li>
+						<li>
+							<label for="cb-theme-transparent-dark-purple">Transparent (purple):</label>
+							<input type="checkbox" name="cb-theme-transparent-dark-purple" id="cb-theme-transparent-dark-purple" checked="checked" />
+
+							<script type="text/javascript">
+								$('#cb-theme-transparent-dark-purple').apToggleSwitch({
+									size: 'medium',
+									theme: 'transparent-dark',
+									color: 'purple'
+								});
+							</script>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

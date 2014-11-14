@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="de-DE" class="no-js"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="de-DE" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<title>Toggle switch UI control</title>
+		<meta name="description" content="Toggle switch UI control" />
+		<meta name="keywords" content="ApToggleSwitch, toggle switch, UI control, retina ready" />
+		<meta name="author" content="Armin Pfäffle" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch-themes.css" media="screen" />
+		<script src="lib/js/ap-toggle-switch.1.0.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+
+			<h1 id="title">ApToggleSwitch <span class="version">Version: 1.0</span></h1>
+			<p>
+				ApToggleSwitch is a component that turns a checkbox into a more efficient component,
+				especially on touch devices. It is inspired by HTC Sense interface, written as simple
+				<a href="http://jquery.com" target="_blank">jQuery</a> plugin and completely based on
+				<a href="http://www.w3.org/Style/CSS/" target="_blank">CSS3</a> that it ready for
+				any resolutions (&raquo;<em>Retina-ready</em>&laquo;).
+			</p>
+			<ol>
+				<li><a href="#themes">Themes</a></li>
+				<li><a href="#changelog">Changelog</a></li>
+				<li><a href="#faq">FAQ</a></li>
+			</ol>
+
+
+			<h2 id="examples">Examples</h2>
+
+			<h3 id="examples-basics">Basics with change event handler</h3>
+			<div class="examples-basic left">
+				<div class="normal-theme">
+					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
+
+					<form action="form.html" method="GET">
+						<ul class="examples">
+							<li>
+								<label for="cb1" style="width: 80%">Default Checkbox:</label>
+								<input type="checkbox" name="cb1" id="cb1" tabindex="1" />
+								<span class="value">no value</span>
+							</li>
+							<li>
+								<label for="cb2" style="width: 80%">Unchecked:</label>
+								<input type="checkbox" name="cb2" id="cb2" tabindex="2" />
+								<span class="value">no value</span>
+
+								<script type="text/javascript">
+									$('#cb2').apToggleSwitch();
+								</script>
+							</li>
+							<li>
+								<label for="cb3" style="width: 80%">Checked:</label>
+								<input type="checkbox" name="cb3" id="cb3" tabindex="3" checked="checked" value="true" />
+								<span class="value">value: true</span>
+
+								<script type="text/javascript">
+									$('#cb3').apToggleSwitch();
+								</script>
+							</li>
+							<li>
+								<label for="cb4" style="width: 80%">Custom Values, Unchecked:</label>
+								<input type="checkbox" name="cb4" id="cb4" tabindex="4" />
+								<span class="value">value: true|false</span>
+
+								<script type="text/javascript">
+									$('#cb4').apToggleSwitch({
+										values: "true|false"
+									});
+								</script>
+							</li>
+							<li>
+								<label for="cb5" style="width: 80%">Custom Values, Checked:</label>
+								<input type="checkbox" name="cb5" id="cb5" tabindex="5" checked="checked" />
+								<span class="value">value: foo|bar</span>
+
+								<script type="text/javascript">
+									$('#cb5').apToggleSwitch({
+										values: "foo|bar"
+									});
+								</script>
+							</li>
+						</ul>
+						<input type="submit" />
+					</form>
+
+					<script type="text/javascript">
+						$(document).ready(function() {
+							var params = location.search.replace("?", "").split("&");
+							var html = "";
+							for (var i = 0; i < params.length; i++) {
+								html += params[i] + "<br />";
+							}
+							$('.output').html( html );
+						});
+					</script>
+				</div>
+			</div>
+			<div class="right output">
+				<span class="smaller">For adding event listener <a href="#event-listener">see here</a>!</span>
+				<br />
+			</div>
+			<div class="clearer"></div>
+
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 7]><html class="lt-ie9 lt-ie8" lang="de-DE" class="no-js"><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" lang="de-DE" class="no-js"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="de-DE" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="UTF-8" />
+		<title>Toggle switch UI control</title>
+		<meta name="description" content="Toggle switch UI control" />
+		<meta name="keywords" content="ApToggleSwitch, toggle switch, UI control, retina ready" />
+		<meta name="author" content="Armin Pfäffle" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="../reset.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../main.css" media="screen" />
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../lib/css/ap-toggle-switch.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../lib/css/ap-toggle-switch-themes.css" media="screen" />
+		<script src="../lib/js/ap-toggle-switch.1.0.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+
+			<h2 id="examples">Test</h2>
+			<div class="examples-basic left">
+				<div class="normal-theme">
+					<form type="get">
+						<ul class="examples">
+							<li>
+								<label for="cb-default" style="width: 80%">ApToggleSwitch:</label>
+								<input type="checkbox" name="cb-default" value="test" id="cb-default" tabindex="1" />
+							</li>
+							<li>
+								<input type="button" value="Init" id="init" />
+								<input type="button" value="Destroy" id="destroy" />
+								<input type="button" value="getValue" id="getValue" />
+								<input type="button" value="isOn" id="isOn" />
+								<input type="button" value="isOff" id="isOff" />
+								<input type="button" value="setValue(On)" id="setValue_On" />
+								<input type="button" value="setOn" id="setOn" />
+								<input type="button" value="setValue(Off)" id="setValue_Off" />
+								<input type="button" value="setOff" id="setOff" />
+								<input type="button" value="Toggle" id="toggle" />
+
+								<script type="text/javascript">
+									$('#cb-default').on('change', function() {
+										$('.output').append( 'CHANGED<br />' );
+									});
+
+									$('#init').on('click', function() {
+										$('#cb-default').apToggleSwitch({
+											values: ['true', 'false'],// 'foo|bar'
+										});
+									});
+
+									$('#destroy').on('click', function() {
+										$('#cb-default').apToggleSwitch('destroy');
+									});
+
+									$('#getValue').on('click', function() {
+										$('.output').append( 'getValue: ' + $('#cb-default').apToggleSwitch('getValue') + '<br />' );
+									});
+
+									$('#isOn').on('click', function() {
+										$('.output').append( 'isOn: ' + $('#cb-default').apToggleSwitch('isOn') + '<br />' );
+									});
+
+									$('#isOff').on('click', function() {
+										$('.output').append( 'isOff: ' + $('#cb-default').apToggleSwitch('isOff') + '<br />' );
+									});
+
+									$('#setValue_On').on('click', function() {
+										$('#cb-default').apToggleSwitch('setValue', true);
+									});
+
+									$('#setOn').on('click', function() {
+										$('#cb-default').apToggleSwitch('setOn');
+									});
+
+									$('#setValue_Off').on('click', function() {
+										$('#cb-default').apToggleSwitch('setValue', false);
+									});
+
+									$('#setOff').on('click', function() {
+										$('#cb-default').apToggleSwitch('setOff');
+									});
+
+									$('#toggle').on('click', function() {
+										$('#cb-default').apToggleSwitch('toggle');
+									});
+								</script>
+							</li>
+						</ul>
+						<input type="submit" value="Submit" />
+					</form>
+				</div>
+			</div>
+			<div class="right output">
+			</div>
+			<div class="clearer"></div>
+		</div>
+	</body>
+</html>

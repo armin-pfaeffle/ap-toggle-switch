@@ -7,21 +7,29 @@
 		<meta charset="UTF-8" />
 		<title>Toggle switch UI control</title>
 		<meta name="description" content="Toggle switch UI control" />
+		<meta name="keywords" content="ApToggleSwitch, toggle switch, UI control, retina ready" />
 		<meta name="author" content="Armin Pfäffle" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" type="text/css" href="reset.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="main.css" media="screen" />
-		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch.css" media="screen" />
 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="lib/js/ap-toggle-switch.0.1.js"></script>
 		<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch-themes.css" media="screen" />
+		<script src="lib/js/ap-toggle-switch.1.0.js"></script>
+
+		<!-- <link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch.min.css" media="screen" /> -->
+		<!-- <link rel="stylesheet" type="text/css" href="lib/css/ap-toggle-switch-themes.min.css" media="screen" /> -->
+		<!-- <script src="lib/js/ap-toggle-switch.1.0.min.js"></script> -->
 	</head>
 	<body>
 		<div class="wrapper">
-			<h1>ApToggleSwitch</h1>
+
+			<h1 id="title">ApToggleSwitch <span class="version">Version: 1.0</span></h1>
 			<p>
 				ApToggleSwitch is a component that turns a checkbox into a more efficient component,
 				especially on touch devices. It is inspired by HTC Sense interface, written as simple
@@ -30,7 +38,7 @@
 				any resolutions (&raquo;<em>Retina-ready</em>&laquo;).
 			</p>
 			<ol>
-				<li><a href="#examples">Examples</a></li>
+				<li><a href="#examples">Basic Examples</a></li>
 				<li><a href="#license-and-download">License and Download</a></li>
 				<li><a href="#how-to-use">How to use</a></li>
 				<li><a href="#options">Options</a></li>
@@ -41,55 +49,49 @@
 			</ol>
 
 
-			<h2 id="examples">Examples</h2>
-			<div class="left">
-				<div class="default-checkbox">
-					<label for="cb1">Default CB:</label>
-					<input type="checkbox" name="cb1" id="cb1" tabindex="1" />
-				</div>
+			<h2 id="examples">Basic Examples</h2>
+			<p>
+				Here the basic usage of ApToggleSwitch is shown. Each toggle switch element is
+				assigned with a change event handler, so changing an element, you will se a notification
+				on the right.
+			</p>
+			<p style="margin-bottom: 20px;">
+				When you want so see more examples that consider different options, sizes and
+				themes, have a look at <a href="examples.html">this page</a>.
+			</p>
+			<div class="examples-basic left">
 				<div class="normal-theme">
 					<a href="#normal-theme-code" class="toggle-code"><img src="images/source-code.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
-					<label for="cb2">Toggle Switch:</label>
-					<input type="checkbox" name="cb2" id="cb2" checked="checked" tabindex="2" />
-					<br />
-					<br />
-					<label for="cb3">No transitions:</label>
-					<input type="checkbox" name="cb3" id="cb3" tabindex="3" />
-				</div>
-				<div id="normal-theme-code" class="example-code">
-<pre class="prettyprint lang-js">
-$('#cb2').apToggleSwitch();
-</pre>
-<pre class="prettyprint lang-js">
-$('#cb3').apToggleSwitch({
-    transitions: false
-});
-</pre>
-				</div>
-				<div class="dark-theme">
-					<a href="#dark-theme-code" class="toggle-code"><img src="images/source-code_white.png" width="16" height="16" alt="Code" title="Show/Hide code" /></a>
-					<label for="cb4">Theme 'dark':</label>
-					<input type="checkbox" name="cb4" id="cb4" tabindex="4" />
-					<br />
-					<br />
-					<label for="cb5">Theme 'dark-alternative':</label>
-					<input type="checkbox" name="cb5" id="cb5" checked="checked" tabindex="5" />
-				</div>
-				<div id="dark-theme-code" class="example-code">
-<pre class="prettyprint lang-js">
-$('#cb4').apToggleSwitch({
-    activeBorder: true,
-    uppercase: false,
-    theme: 'dark'
-});
-</pre>
-<pre class="prettyprint lang-js">
-$('#cb5').apToggleSwitch({
-    activeBorder: true,
-    uppercase: false,
-    theme: 'dark-alternative'
-});
-</pre>
+
+					<ul class="examples">
+						<li>
+							<label for="cb1" style="width: 80%">Default Checkbox:</label>
+							<input type="checkbox" name="cb1" id="cb1" tabindex="1" />
+						</li>
+						<li>
+							<label for="cb-default" style="width: 80%">Default usage:</label>
+							<input type="checkbox" name="cb-default" id="cb-default" tabindex="2" />
+
+							<script type="text/javascript">
+								$('#cb-default').apToggleSwitch();
+							</script>
+						</li>
+						<li>
+							<label for="cb-default-checked" style="width: 80%">Default usage (checked):</label>
+							<input type="checkbox" name="cb-default-checked" id="cb-default-checked" checked="checked" tabindex="3" />
+
+							<script type="text/javascript">
+								$('#cb-default-checked').apToggleSwitch();
+							</script>
+						</li>
+					</ul>
+
+					<script type="text/javascript">
+					$('.examples-basic input[type="checkbox"]')
+						.change(function() {
+							$('.output').append('#' + $(this).attr('id') + ' change to: ' + ($(this).is(':checked') ? 'true' : 'false') + '<br />');
+						});
+					</script>
 				</div>
 			</div>
 			<div class="right output">
@@ -98,33 +100,6 @@ $('#cb5').apToggleSwitch({
 			</div>
 			<div class="clearer"></div>
 
-			<script type="text/javascript">
-				$(document).ready(function() {
-					$('#cb2').apToggleSwitch();
-					$('#cb3').apToggleSwitch({transitions: false});
-					$('#cb4').apToggleSwitch({
-						activeBorder: true,
-						uppercase: false,
-						theme: 'dark'
-					});
-					$('#cb5').apToggleSwitch({
-						activeBorder: true,
-						uppercase: false,
-						theme: 'dark-alternative'
-					});
-
-					$('#cb1, #cb2, #cb3, #cb4, #cb5')
-						.change(function() {
-							$('.output').append('#' + $(this).attr('id') + ' change to: ' + ($(this).is(':checked') ? 'true' : 'false') + '<br />');
-						});
-
-					$('.toggle-code').click(function() {
-						var id = $(this).attr('href');
-						$(id).slideToggle();
-						return false;
-					})
-				});
-			</script>
 
 			<h2 id="license-and-download">License and Download</h2>
 			<p>
@@ -192,7 +167,89 @@ $('#cb5').apToggleSwitch({
 					<th>Description</th>
 				</tr>
 				<tr>
-					<td><code>handleLabelClicks</code></td>
+					<td id="option-size"><code>size</code></td>
+					<td>
+						If true, the font in the UI element is uppercase.
+						<span class="default">
+							<em>Default:</em> <code>"small"</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-widthMultiplier"><code>widthMultiplier</code></td>
+					<td>
+						If true, the font in the UI element is uppercase.
+						<span class="default">
+							<em>Default:</em> <code>1.0</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-text"><code>text</code></td>
+					<td>
+						If true, the font in the UI element is uppercase.
+						<span class="default">
+							<em>Default:</em> <code>"On|Off"</code>
+						</span>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td id="option-uppercase"><code>uppercase</code></td>
+					<td>
+						If true, the font in the UI element is uppercase.
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-theme"><code>theme</code></td>
+					<td>
+						Used theme for UI element. Available themes:
+						<ul>
+							<li>default</li>
+							<li>dark</li>
+							<li>dark-alternative</li>
+							<li>metro-light</li>
+							<li>metro-dark</li>
+						</ul>
+						<span class="default">
+							<em>Default:</em> <code>'default'</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-roundCorners"><code>roundCorners</code></td>
+					<td>
+						If true, the font in the UI element is uppercase.
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-activeBorder"><code>activeBorder</code></td>
+					<td>
+						If true, a highlight border is shown when element is focused.
+						<span class="default">
+							<em>Default:</em> <code>false</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-transitions"><code>transitions</code></td>
+					<td>
+						If true, transitions are enabled when toggling value. The transitions are CSS based,
+						so browser has to support CSS transitions!
+						<span class="default">
+							<em>Default:</em> <code>true</code>
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="option-handleLabelClicks"><code>handleLabelClicks</code></td>
 					<td>
 						If true, this script handles clicks on corresponding &lt;label&gt;-elements.
 						<span class="default">
@@ -201,7 +258,7 @@ $('#cb5').apToggleSwitch({
 					</td>
 				</tr>
 				<tr>
-					<td><code>handleKeyEvents</code></td>
+					<td id="option-handleKeyEvents"><code>handleKeyEvents</code></td>
 					<td>
 						If true, this script handles key events if UI element is focused. Following keys
 						are handled:
@@ -212,48 +269,6 @@ $('#cb5').apToggleSwitch({
 						</ul>
 						<span class="default">
 							<em>Default:</em> <code>true</code>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td><code>transitions</code></td>
-					<td>
-						If true, transitions are enabled when toggling value. The transitions are CSS based,
-						so browser has to support CSS transitions!
-						<span class="default">
-							<em>Default:</em> <code>true</code>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td><code>activeBorder</code></td>
-					<td>
-						If true, a highlight border is shown when element is focused.
-						<span class="default">
-							<em>Default:</em> <code>false</code>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td><code>uppercase</code></td>
-					<td>
-						If true, the font in the UI element is uppercase.
-						<span class="default">
-							<em>Default:</em> <code>true</code>
-						</span>
-					</td>
-				</tr>
-				<tr>
-					<td><code>theme</code></td>
-					<td>
-						Used theme for UI element. Available themes:
-						<ul>
-							<li>default</li>
-							<li>dark</li>
-							<li>dark-alternative</li>
-						</ul>
-						<span class="default">
-							<em>Default:</em> <code>'default'</code>
 						</span>
 					</td>
 				</tr>
@@ -362,10 +377,19 @@ $('#checkboxID').apToggleSwitch('no');
 
 
 			<h2 id="changelog">Changelog</h2>
-			<p>
-				<strong>06.03.2014</strong>
-				<p>Initial version</p>
-			</p>
+			<p><strong>21.07.2014</strong></p>
+			<ul>
+				<li>Added option <code><a href="#option-size">size</a></code></li>
+				<li>Added option <code><a href="#option-widthMultiplier">widthMultiplier</a></code></li>
+				<li>Added option <code><a href="#option-text">text</a></code></li>
+				<li>Added option <code><a href="#option-roundCorners">roundCorners</a></code></li>
+				<li>Added two new themes <code>metro-light</code> and <code>metro-dark</code></li>
+			</ul>
+
+			<p><strong>06.03.2014</strong></p>
+			<ul>
+				<li>Initial version</li>
+			</ul>
 
 
 			<h2 id="faq">FAQ</h2>

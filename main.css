@@ -36,13 +36,13 @@ body {
 	}
 
 ::selection { /* Safari */
-	background-color: #444;
+	background-color: #222;
 	color: #fff;
 	text-shadow: none;
 	}
 
 ::-moz-selection { /* Firefox */
-	background-color: #444;
+	background-color: #222;
 	color: #fff;
 	text-shadow: none;
 	}
@@ -153,12 +153,41 @@ ol {
 	list-style-position: outside;
 	padding: 0 0 0 20px;
 	margin: 20px 0;
+
+	counter-reset:listenpunkt_ebene1;
+	list-style-type: none;
 	}
+
+	ol > li:before {
+		content: counter(listenpunkt_ebene1) ". ";
+		counter-increment:listenpunkt_ebene1;
+		}
+
+	ol ol {
+		padding: 0 0 0 20px;
+		margin: 5px 0 10px 0;
+
+		counter-reset:listenpunkt_ebene2;
+		list-style-type:none;
+		}
+
+		ol ol > li:before {
+			content: counter(listenpunkt_ebene1)"."counter(listenpunkt_ebene2,decimal) ". ";
+			counter-increment:listenpunkt_ebene2;
+			}
 
 .smaller {
 	font-size: 10pt;
 	color: #444;
 	}
+
+#title {
+	}
+
+	#title .version {
+		color: #aaa;
+		font-size: 12pt;
+		}
 
 .left {
 	float: left;
@@ -178,19 +207,12 @@ ol {
 
 label {
 	cursor: pointer;
-	width: 70%;
+	width: 50%;
 	display: inline-block;
 	}
 
-.ap-toggle-switch {
+.apts {
 	vertical-align: middle;
-	}
-
-.default-checkbox {
-	background-color: #fff;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-	border-radius: 3px;
-	padding: 30px 20px;
 	}
 
 .normal-theme {
@@ -199,7 +221,7 @@ label {
 	background-color: #fafafa;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 	border-radius: 3px;
-	padding: 30px 20px;
+	padding: 15px 20px;
 	}
 
 .dark-theme {
@@ -208,10 +230,37 @@ label {
 	background-color: #222;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 	border-radius: 3px;
-	padding: 30px 20px;
+	padding: 15px 20px;
 	color: #fff;
 	text-shadow: none;
 	}
+
+.transparent-theme {
+	position: relative;
+	margin: 20px 0 0 0;
+	background: url('images/slider-bg2.jpg') center center no-repeat;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	border-radius: 3px;
+	padding: 15px 20px;
+	color: #fff;
+	text-shadow: none;
+	}
+
+.normal-theme:first-child,
+.dark-theme:first-child {
+	margin-top: 0;
+	}
+
+.examples {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	}
+
+	.examples > li {
+		padding: 0;
+		margin: 15px 0;
+		}
 
 .toggle-code {
 	position: absolute;
@@ -261,3 +310,9 @@ label {
 
 		.imprint > ul > li {
 			}
+
+span.value {
+	font-size: 0.8em;
+	color: #777;
+	display: block;
+	}
